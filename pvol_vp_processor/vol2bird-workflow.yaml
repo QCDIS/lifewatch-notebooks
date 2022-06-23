@@ -1,0 +1,125 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: workflow-vol2bird-
+spec:
+    entrypoint: workflow-test
+    arguments:
+      parameters:
+      - name: param_minio_endpoint
+        value: ''
+      - name: param_minio_input_prefix
+        value: 'NL/DHL/2018/10/03'
+      - name: param_minio_secure
+        value: 'True'
+      - name: param_minio_input_bucket
+        value: ''
+      - name: param_minio_secret_key
+        value: ''
+      - name: param_minio_access_key
+        value: 'lifewatchdemo'
+      - name: param_radar_db_source_name
+        value: 'opera-radars-db.json'
+    templates:
+    - name: workflow-test
+      dag:
+        tasks:
+        - name: vol2bird-retrieve-input-files-skoulouzis-4eb7c07
+          template: vol2bird-retrieve-input-files-skoulouzis-4eb7c07-tmp
+          arguments:
+            parameters:
+            - {name: param_minio_input_prefix, value: "{{workflow.parameters.param_minio_input_prefix}}"}
+            - {name: param_radar_db_source_name, value: "{{workflow.parameters.param_radar_db_source_name}}"}
+            - {name: param_minio_secure, value: "{{workflow.parameters.param_minio_secure}}"}
+            - {name: param_minio_endpoint, value: "{{workflow.parameters.param_minio_endpoint}}"}
+            - {name: param_minio_access_key, value: "{{workflow.parameters.param_minio_access_key}}"}
+            - {name: param_minio_input_bucket, value: "{{workflow.parameters.param_minio_input_bucket}}"}
+            - {name: param_minio_secret_key, value: "{{workflow.parameters.param_minio_secret_key}}"}
+        - name: vol2bird-skoulouzis-084e258
+          dependencies: [ splitter-d307e74 ]
+          template: vol2bird-skoulouzis-084e258-tmp
+          arguments:
+            parameters:
+            - {name: splitter_target_d307e74, value: "{{item}}"}
+            - {name: param_minio_input_prefix, value: "{{workflow.parameters.param_minio_input_prefix}}"}
+            - {name: param_radar_db_source_name, value: "{{workflow.parameters.param_radar_db_source_name}}"}
+            - {name: param_minio_secure, value: "{{workflow.parameters.param_minio_secure}}"}
+            - {name: param_minio_endpoint, value: "{{workflow.parameters.param_minio_endpoint}}"}
+            - {name: param_minio_access_key, value: "{{workflow.parameters.param_minio_access_key}}"}
+            - {name: param_minio_input_bucket, value: "{{workflow.parameters.param_minio_input_bucket}}"}
+            - {name: param_minio_secret_key, value: "{{workflow.parameters.param_minio_secret_key}}"}
+          withParam: "{{tasks.splitter-d307e74.outputs.parameters.splitter_target_d307e74}}"
+        - name: splitter-d307e74
+          dependencies: [ vol2bird-retrieve-input-files-skoulouzis-4eb7c07 ]
+          template: splitter-d307e74-tmp
+          arguments:
+            parameters:
+            - {name: input_file_list_e17359b, value: "{{tasks.vol2bird-retrieve-input-files-skoulouzis-4eb7c07.outputs.parameters.input_file_list_e17359b}}"}
+
+    - name: vol2bird-retrieve-input-files-skoulouzis-4eb7c07-tmp
+      outputs:
+        parameters:
+          - name: input_file_list_e17359b
+            valueFrom:
+              path: /tmp/input_file_list_e17359b.json
+      container:
+        image: "qcdis/vol2bird-retrieve-input-files-skoulouzis"
+        command: ["/bin/bash", "-c"]
+        args:
+          - source /venv/bin/activate; python vol2bird-retrieve-input-files-skoulouzis.py
+            --param_minio_input_prefix "{{workflow.parameters.param_minio_input_prefix}}"
+            --param_radar_db_source_name "{{workflow.parameters.param_radar_db_source_name}}"
+            --param_minio_secure "{{workflow.parameters.param_minio_secure}}"
+            --param_minio_endpoint "{{workflow.parameters.param_minio_endpoint}}"
+            --param_minio_access_key "{{workflow.parameters.param_minio_access_key}}"
+            --param_minio_input_bucket "{{workflow.parameters.param_minio_input_bucket}}"
+            --param_minio_secret_key "{{workflow.parameters.param_minio_secret_key}}"
+            --id "e17359b";
+    - name: vol2bird-skoulouzis-084e258-tmp
+      inputs:
+        parameters:
+        - name: splitter_target_d307e74
+        - name: param_minio_input_prefix
+        - name: param_radar_db_source_name
+        - name: param_minio_secure
+        - name: param_minio_endpoint
+        - name: param_minio_access_key
+        - name: param_minio_input_bucket
+        - name: param_minio_secret_key
+      outputs:
+        parameters:
+          - name: output_file_list_78964b1
+            valueFrom:
+              path: /tmp/output_file_list_78964b1.json
+      container:
+        image: "qcdis/vol2bird-skoulouzis"
+        command: ["/bin/bash", "-c"]
+        args:
+          - source /venv/bin/activate; python vol2bird-skoulouzis.py
+            --input "{{inputs.parameters.splitter_target_d307e74}}"
+            --param_minio_input_prefix "{{workflow.parameters.param_minio_input_prefix}}"
+            --param_radar_db_source_name "{{workflow.parameters.param_radar_db_source_name}}"
+            --param_minio_secure "{{workflow.parameters.param_minio_secure}}"
+            --param_minio_endpoint "{{workflow.parameters.param_minio_endpoint}}"
+            --param_minio_access_key "{{workflow.parameters.param_minio_access_key}}"
+            --param_minio_input_bucket "{{workflow.parameters.param_minio_input_bucket}}"
+            --param_minio_secret_key "{{workflow.parameters.param_minio_secret_key}}"
+            --id "78964b1";
+    - name: splitter-d307e74-tmp
+      inputs:
+        parameters:
+        - name: input_file_list_e17359b
+      outputs:
+        parameters:
+          - name: splitter_target_d307e74
+            valueFrom:
+              path: /tmp/splitter_target_d307e74.json
+      script:
+        image: python:alpine3.9
+        command: [python]
+        source: |
+          import json
+          input_file_list_e17359b = {{inputs.parameters.input_file_list_e17359b}}
+          f_out = open("/tmp/splitter_target_d307e74.json", "w")
+          f_out.write(json.dumps(input_file_list_e17359b))
+          f_out.close()
