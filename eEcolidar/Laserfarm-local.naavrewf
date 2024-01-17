@@ -1,0 +1,1068 @@
+{
+  "chart": {
+    "offset": {
+      "x": -3117,
+      "y": 98
+    },
+    "scale": 1,
+    "nodes": {
+      "e49cd8eb-11ec-44a5-aae8-cde7bc90b639": {
+        "id": "e49cd8eb-11ec-44a5-aae8-cde7bc90b639",
+        "position": {
+          "x": 273.2166748046875,
+          "y": 37
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "laz_files": {
+            "properties": {
+              "color": "#e0cc6c"
+            },
+            "id": "laz_files",
+            "type": "right",
+            "position": {
+              "x": 219,
+              "y": 74
+            }
+          }
+        },
+        "properties": {
+          "title": "S1 Fetch Laz Files-dev-user-name-at-domain-com",
+          "vars": [
+            {
+              "name": "laz_files",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#e0cc6c"
+            }
+          ],
+          "params": [
+            "param_hostname",
+            "param_username",
+            "param_password",
+            "param_remote_server_type",
+            "param_minio_server",
+            "param_bucket_name",
+            "param_remote_path_root"
+          ],
+          "inputs": [],
+          "outputs": [
+            "laz_files"
+          ],
+          "og_node_id": "285d7ad",
+          "deps": [
+            "laserfarm",
+            "",
+            "minio"
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "365d57dd-81f7-477b-8398-264e0cc24015": {
+        "id": "365d57dd-81f7-477b-8398-264e0cc24015",
+        "position": {
+          "x": 881.2166748046875,
+          "y": 17
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "laz_files": {
+            "properties": {
+              "color": "#e0cc6c"
+            },
+            "id": "laz_files",
+            "type": "left",
+            "position": {
+              "x": 28,
+              "y": 74
+            }
+          },
+          "S2_done": {
+            "properties": {
+              "color": "#862d56"
+            },
+            "id": "S2_done",
+            "type": "right",
+            "position": {
+              "x": 217.5,
+              "y": 74
+            }
+          }
+        },
+        "properties": {
+          "title": "S2 split big files local minio-dev-user-name-at-domain-com",
+          "vars": [
+            {
+              "name": "laz_files",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#e0cc6c"
+            },
+            {
+              "name": "S2_done",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#862d56"
+            }
+          ],
+          "params": [
+            "param_hostname",
+            "param_username",
+            "param_password",
+            "param_minio_server",
+            "param_remote_server_type",
+            "param_remote_path_root",
+            "param_bucket_name",
+            "param_max_filesize"
+          ],
+          "inputs": [
+            "laz_files"
+          ],
+          "outputs": [
+            "S2_done"
+          ],
+          "og_node_id": "4c20de1",
+          "deps": [
+            "",
+            "minio",
+            "webdav3"
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "1abe8c59-5f8e-40bf-a0df-8fa662aef000": {
+        "id": "1abe8c59-5f8e-40bf-a0df-8fa662aef000",
+        "position": {
+          "x": 607.2166748046875,
+          "y": 52
+        },
+        "orientation": 0,
+        "type": "splitter",
+        "ports": {
+          "splitter_source": {
+            "id": "splitter_source",
+            "type": "left",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 0.5,
+              "y": 48.5
+            }
+          },
+          "splitter_target": {
+            "id": "splitter_target",
+            "type": "right",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 197.5,
+              "y": 48.5
+            }
+          }
+        },
+        "properties": {
+          "title": "Splitter",
+          "scalingFactor": 1
+        },
+        "size": {
+          "width": 200,
+          "height": 100
+        }
+      },
+      "bc0d0af6-3e99-49af-a3c9-baa805165151": {
+        "id": "bc0d0af6-3e99-49af-a3c9-baa805165151",
+        "position": {
+          "x": 1178.2166748046875,
+          "y": 9
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "S2_done": {
+            "properties": {
+              "color": "#862d56"
+            },
+            "id": "S2_done",
+            "type": "left",
+            "position": {
+              "x": 30.5,
+              "y": 74
+            }
+          },
+          "split_laz_files": {
+            "properties": {
+              "color": "#5382ac"
+            },
+            "id": "split_laz_files",
+            "type": "right",
+            "position": {
+              "x": 201.5,
+              "y": 74
+            }
+          }
+        },
+        "properties": {
+          "title": "S21 Fetch Laz Files local-dev-user-name-at-domain-com",
+          "vars": [
+            {
+              "name": "S2_done",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#862d56"
+            },
+            {
+              "name": "split_laz_files",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#5382ac"
+            }
+          ],
+          "params": [],
+          "inputs": [
+            "S2_done"
+          ],
+          "outputs": [
+            "split_laz_files"
+          ],
+          "og_node_id": "8bccbb2",
+          "deps": [
+            ""
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "2b4e792b-d247-48f5-91ae-e3ed8cfa589d": {
+        "id": "2b4e792b-d247-48f5-91ae-e3ed8cfa589d",
+        "position": {
+          "x": 1550.2166748046875,
+          "y": 20
+        },
+        "orientation": 0,
+        "type": "splitter",
+        "ports": {
+          "splitter_source": {
+            "id": "splitter_source",
+            "type": "left",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 0.5,
+              "y": 48.5
+            }
+          },
+          "splitter_target": {
+            "id": "splitter_target",
+            "type": "right",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 197.5,
+              "y": 48.5
+            }
+          }
+        },
+        "properties": {
+          "title": "Splitter",
+          "scalingFactor": 1
+        },
+        "size": {
+          "width": 200,
+          "height": 100
+        }
+      },
+      "bec2e356-55cb-4489-8f07-e3c7f81791f9": {
+        "id": "bec2e356-55cb-4489-8f07-e3c7f81791f9",
+        "position": {
+          "x": 1846.2166748046875,
+          "y": 0
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "split_laz_files": {
+            "properties": {
+              "color": "#5382ac"
+            },
+            "id": "split_laz_files",
+            "type": "left",
+            "position": {
+              "x": 46.5,
+              "y": 74
+            }
+          },
+          "S3_done": {
+            "properties": {
+              "color": "#ac53a9"
+            },
+            "id": "S3_done",
+            "type": "right",
+            "position": {
+              "x": 217.5,
+              "y": 74
+            }
+          }
+        },
+        "properties": {
+          "title": "S3 Retiling local-dev-user-name-at-domain-com",
+          "vars": [
+            {
+              "name": "split_laz_files",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#5382ac"
+            },
+            {
+              "name": "S3_done",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#ac53a9"
+            }
+          ],
+          "params": [],
+          "inputs": [
+            "split_laz_files"
+          ],
+          "outputs": [
+            "S3_done"
+          ],
+          "og_node_id": "cdf3b21",
+          "deps": [
+            "laserfarm",
+            ""
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "3469c87d-95f8-4878-8fb6-d5b1344b09d6": {
+        "id": "3469c87d-95f8-4878-8fb6-d5b1344b09d6",
+        "position": {
+          "x": 2194.2166748046875,
+          "y": 0
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "S3_done": {
+            "properties": {
+              "color": "#ac53a9"
+            },
+            "id": "S3_done",
+            "type": "left",
+            "position": {
+              "x": 30.5,
+              "y": 74
+            }
+          },
+          "tiles": {
+            "properties": {
+              "color": "#406abf"
+            },
+            "id": "tiles",
+            "type": "right",
+            "position": {
+              "x": 233,
+              "y": 74
+            }
+          }
+        },
+        "properties": {
+          "title": "S4 Retrive retiled tiles local-dev-user-name-at-domain-com",
+          "vars": [
+            {
+              "name": "S3_done",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#ac53a9"
+            },
+            {
+              "name": "tiles",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#406abf"
+            }
+          ],
+          "params": [],
+          "inputs": [
+            "S3_done"
+          ],
+          "outputs": [
+            "tiles"
+          ],
+          "og_node_id": "e000bda",
+          "deps": [
+            ""
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "bf8d8fef-c076-4c7c-ba8a-9c17444e485e": {
+        "id": "bf8d8fef-c076-4c7c-ba8a-9c17444e485e",
+        "position": {
+          "x": 2898.2166748046875,
+          "y": 0
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "tiles": {
+            "properties": {
+              "color": "#406abf"
+            },
+            "id": "tiles",
+            "type": "left",
+            "position": {
+              "x": 15,
+              "y": 74
+            }
+          },
+          "S5_done": {
+            "properties": {
+              "color": "#86702d"
+            },
+            "id": "S5_done",
+            "type": "right",
+            "position": {
+              "x": 217.5,
+              "y": 74
+            }
+          }
+        },
+        "properties": {
+          "title": "S5 Feature Extraction local-dev-user-name-at-domain-com",
+          "vars": [
+            {
+              "name": "tiles",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#406abf"
+            },
+            {
+              "name": "S5_done",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#86702d"
+            }
+          ],
+          "params": [],
+          "inputs": [
+            "tiles"
+          ],
+          "outputs": [
+            "S5_done"
+          ],
+          "og_node_id": "2b3f9ac",
+          "deps": [
+            "",
+            "laserfarm"
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "bd568d3c-21e1-48cb-b8f7-19482b99ae9e": {
+        "id": "bd568d3c-21e1-48cb-b8f7-19482b99ae9e",
+        "position": {
+          "x": 2547.2166748046875,
+          "y": 0
+        },
+        "orientation": 0,
+        "type": "splitter",
+        "ports": {
+          "splitter_source": {
+            "id": "splitter_source",
+            "type": "left",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 0.5,
+              "y": 48.5
+            }
+          },
+          "splitter_target": {
+            "id": "splitter_target",
+            "type": "right",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 197.5,
+              "y": 48.5
+            }
+          }
+        },
+        "properties": {
+          "title": "Splitter",
+          "scalingFactor": 1
+        },
+        "size": {
+          "width": 200,
+          "height": 100
+        }
+      },
+      "23c4b984-39b1-48b5-bd2b-065e2f09dc38": {
+        "id": "23c4b984-39b1-48b5-bd2b-065e2f09dc38",
+        "position": {
+          "x": 3241.2166748046875,
+          "y": 0
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "S5_done": {
+            "properties": {
+              "color": "#86702d"
+            },
+            "id": "S5_done",
+            "type": "left",
+            "position": {
+              "x": 30.5,
+              "y": 74
+            }
+          },
+          "S6_done": {
+            "properties": {
+              "color": "#2d35d2"
+            },
+            "id": "S6_done",
+            "type": "right",
+            "position": {
+              "x": 217.5,
+              "y": 74
+            }
+          }
+        },
+        "properties": {
+          "title": "S6 GeoTIFF Export local-dev-user-name-at-domain-com",
+          "vars": [
+            {
+              "name": "S5_done",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#86702d"
+            },
+            {
+              "name": "S6_done",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#2d35d2"
+            }
+          ],
+          "params": [
+            "param_hostname",
+            "param_username",
+            "param_password"
+          ],
+          "inputs": [
+            "S5_done"
+          ],
+          "outputs": [
+            "S6_done"
+          ],
+          "og_node_id": "632b14c",
+          "deps": [
+            "laserfarm",
+            ""
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "93045808-654f-4fe3-9007-e5aaffb50038": {
+        "id": "93045808-654f-4fe3-9007-e5aaffb50038",
+        "position": {
+          "x": 3550.2166748046875,
+          "y": 0
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "S6_done": {
+            "properties": {
+              "color": "#2d35d2"
+            },
+            "id": "S6_done",
+            "type": "left",
+            "position": {
+              "x": 30.5,
+              "y": 74
+            }
+          },
+          "username": {
+            "properties": {
+              "color": "#d2b979"
+            },
+            "id": "username",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 14
+            }
+          },
+          "mode": {
+            "properties": {
+              "color": "#2daed2"
+            },
+            "id": "mode",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 42
+            }
+          },
+          "password": {
+            "properties": {
+              "color": "#8779d2"
+            },
+            "id": "password",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 70
+            }
+          },
+          "num": {
+            "properties": {
+              "color": "#87c587"
+            },
+            "id": "num",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 98
+            }
+          },
+          "output": {
+            "properties": {
+              "color": "#1f932b"
+            },
+            "id": "output",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 126
+            }
+          },
+          "remote": {
+            "properties": {
+              "color": "#502d86"
+            },
+            "id": "remote",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 154
+            }
+          },
+          "hostname": {
+            "properties": {
+              "color": "#2d40d2"
+            },
+            "id": "hostname",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 182
+            }
+          }
+        },
+        "properties": {
+          "title": "param vislulization-dev-user-name-at-domain-com",
+          "vars": [
+            {
+              "name": "S6_done",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#2d35d2"
+            },
+            {
+              "name": "username",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#d2b979"
+            },
+            {
+              "name": "mode",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#2daed2"
+            },
+            {
+              "name": "password",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#8779d2"
+            },
+            {
+              "name": "num",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#87c587"
+            },
+            {
+              "name": "output",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#1f932b"
+            },
+            {
+              "name": "remote",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#502d86"
+            },
+            {
+              "name": "hostname",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#2d40d2"
+            }
+          ],
+          "params": [
+            "param_hostname",
+            "param_username",
+            "param_password"
+          ],
+          "inputs": [
+            "S6_done"
+          ],
+          "outputs": [
+            "username",
+            "mode",
+            "password",
+            "num",
+            "output",
+            "remote",
+            "hostname"
+          ],
+          "og_node_id": "ab8bbf9",
+          "deps": [
+            ""
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "cbd38822-b325-4f23-abb9-e4bd1a216836": {
+        "id": "cbd38822-b325-4f23-abb9-e4bd1a216836",
+        "position": {
+          "x": 4109.2166748046875,
+          "y": 0
+        },
+        "orientation": 0,
+        "type": "visualizer",
+        "ports": {
+          "hostname": {
+            "id": "hostname",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 14
+            }
+          },
+          "username": {
+            "id": "username",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 42
+            }
+          },
+          "password": {
+            "id": "password",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 70
+            }
+          },
+          "remote": {
+            "id": "remote",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 98
+            }
+          },
+          "num": {
+            "id": "num",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 126
+            }
+          },
+          "mode": {
+            "id": "mode",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 154
+            }
+          },
+          "output": {
+            "id": "output",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 182
+            }
+          }
+        },
+        "properties": {
+          "title": "Visualizer",
+          "scalingFactor": 1
+        },
+        "size": {
+          "width": 200,
+          "height": 100
+        }
+      }
+    },
+    "links": {
+      "9acf3dff-ef49-49d9-85d5-0e9c7f16e9e9": {
+        "id": "9acf3dff-ef49-49d9-85d5-0e9c7f16e9e9",
+        "from": {
+          "nodeId": "e49cd8eb-11ec-44a5-aae8-cde7bc90b639",
+          "portId": "laz_files"
+        },
+        "to": {
+          "nodeId": "1abe8c59-5f8e-40bf-a0df-8fa662aef000",
+          "portId": "splitter_source"
+        }
+      },
+      "62d500ec-9221-4bbe-866f-97728deede38": {
+        "id": "62d500ec-9221-4bbe-866f-97728deede38",
+        "from": {
+          "nodeId": "1abe8c59-5f8e-40bf-a0df-8fa662aef000",
+          "portId": "splitter_target"
+        },
+        "to": {
+          "nodeId": "365d57dd-81f7-477b-8398-264e0cc24015",
+          "portId": "laz_files"
+        }
+      },
+      "6f3a882a-810c-4b25-b84d-c9b172c96f81": {
+        "id": "6f3a882a-810c-4b25-b84d-c9b172c96f81",
+        "from": {
+          "nodeId": "365d57dd-81f7-477b-8398-264e0cc24015",
+          "portId": "S2_done"
+        },
+        "to": {
+          "nodeId": "bc0d0af6-3e99-49af-a3c9-baa805165151",
+          "portId": "S2_done"
+        }
+      },
+      "a83b3426-9fcc-43c2-a4cc-864eccf28198": {
+        "id": "a83b3426-9fcc-43c2-a4cc-864eccf28198",
+        "from": {
+          "nodeId": "bc0d0af6-3e99-49af-a3c9-baa805165151",
+          "portId": "split_laz_files"
+        },
+        "to": {
+          "nodeId": "2b4e792b-d247-48f5-91ae-e3ed8cfa589d",
+          "portId": "splitter_source"
+        }
+      },
+      "c20cc0b0-0a66-4969-91af-b5fb2b625aa4": {
+        "id": "c20cc0b0-0a66-4969-91af-b5fb2b625aa4",
+        "from": {
+          "nodeId": "2b4e792b-d247-48f5-91ae-e3ed8cfa589d",
+          "portId": "splitter_target"
+        },
+        "to": {
+          "nodeId": "bec2e356-55cb-4489-8f07-e3c7f81791f9",
+          "portId": "split_laz_files"
+        }
+      },
+      "53e855f0-e832-483d-a55e-d64383d0ff1a": {
+        "id": "53e855f0-e832-483d-a55e-d64383d0ff1a",
+        "from": {
+          "nodeId": "bec2e356-55cb-4489-8f07-e3c7f81791f9",
+          "portId": "S3_done"
+        },
+        "to": {
+          "nodeId": "3469c87d-95f8-4878-8fb6-d5b1344b09d6",
+          "portId": "S3_done"
+        }
+      },
+      "1670111e-b494-4b21-ba0f-341a98e24fe1": {
+        "id": "1670111e-b494-4b21-ba0f-341a98e24fe1",
+        "from": {
+          "nodeId": "3469c87d-95f8-4878-8fb6-d5b1344b09d6",
+          "portId": "tiles"
+        },
+        "to": {
+          "nodeId": "bd568d3c-21e1-48cb-b8f7-19482b99ae9e",
+          "portId": "splitter_source"
+        }
+      },
+      "30f9061a-726d-4bed-bdd5-6d401c2b376d": {
+        "id": "30f9061a-726d-4bed-bdd5-6d401c2b376d",
+        "from": {
+          "nodeId": "bd568d3c-21e1-48cb-b8f7-19482b99ae9e",
+          "portId": "splitter_target"
+        },
+        "to": {
+          "nodeId": "bf8d8fef-c076-4c7c-ba8a-9c17444e485e",
+          "portId": "tiles"
+        }
+      },
+      "4cd5030b-984e-48b9-9fb8-b2d395057527": {
+        "id": "4cd5030b-984e-48b9-9fb8-b2d395057527",
+        "from": {
+          "nodeId": "bf8d8fef-c076-4c7c-ba8a-9c17444e485e",
+          "portId": "S5_done"
+        },
+        "to": {
+          "nodeId": "23c4b984-39b1-48b5-bd2b-065e2f09dc38",
+          "portId": "S5_done"
+        }
+      },
+      "d77300f4-3d50-457d-a661-aa304dc6b8d5": {
+        "id": "d77300f4-3d50-457d-a661-aa304dc6b8d5",
+        "from": {
+          "nodeId": "23c4b984-39b1-48b5-bd2b-065e2f09dc38",
+          "portId": "S6_done"
+        },
+        "to": {
+          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
+          "portId": "S6_done"
+        }
+      },
+      "3310ebb0-9587-4b30-9467-5e2cf9251f8f": {
+        "id": "3310ebb0-9587-4b30-9467-5e2cf9251f8f",
+        "from": {
+          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
+          "portId": "hostname"
+        },
+        "to": {
+          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
+          "portId": "hostname"
+        }
+      },
+      "5853d650-b994-4cfb-9987-ebed2f900ae3": {
+        "id": "5853d650-b994-4cfb-9987-ebed2f900ae3",
+        "from": {
+          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
+          "portId": "remote"
+        },
+        "to": {
+          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
+          "portId": "remote"
+        }
+      },
+      "01e12c8f-6564-4dab-ba9c-61f95626aad1": {
+        "id": "01e12c8f-6564-4dab-ba9c-61f95626aad1",
+        "from": {
+          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
+          "portId": "output"
+        },
+        "to": {
+          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
+          "portId": "output"
+        }
+      },
+      "57132e79-6d92-4472-b037-e14be47771bd": {
+        "id": "57132e79-6d92-4472-b037-e14be47771bd",
+        "from": {
+          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
+          "portId": "num"
+        },
+        "to": {
+          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
+          "portId": "num"
+        }
+      },
+      "a7a52b4e-d3e6-4b2b-adf6-6ec5e5ab5804": {
+        "id": "a7a52b4e-d3e6-4b2b-adf6-6ec5e5ab5804",
+        "from": {
+          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
+          "portId": "password"
+        },
+        "to": {
+          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
+          "portId": "password"
+        }
+      },
+      "4282f6c0-13d4-4fb0-b4a4-f559ccbb0624": {
+        "id": "4282f6c0-13d4-4fb0-b4a4-f559ccbb0624",
+        "from": {
+          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
+          "portId": "mode"
+        },
+        "to": {
+          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
+          "portId": "mode"
+        }
+      },
+      "a45d4ad3-d417-4c6b-a47b-41bbc0e6d2ca": {
+        "id": "a45d4ad3-d417-4c6b-a47b-41bbc0e6d2ca",
+        "from": {
+          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
+          "portId": "username"
+        },
+        "to": {
+          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
+          "portId": "username"
+        }
+      }
+    },
+    "selected": {},
+    "hovered": {}
+  }
+}
