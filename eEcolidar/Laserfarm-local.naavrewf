@@ -1,16 +1,16 @@
 {
   "chart": {
     "offset": {
-      "x": -3117,
-      "y": 98
+      "x": -4448.34,
+      "y": 205.07
     },
-    "scale": 1,
+    "scale": 1.247,
     "nodes": {
-      "e49cd8eb-11ec-44a5-aae8-cde7bc90b639": {
-        "id": "e49cd8eb-11ec-44a5-aae8-cde7bc90b639",
+      "9c6d1c6b-5a18-4be5-822c-c6a41e6fd7b2": {
+        "id": "9c6d1c6b-5a18-4be5-822c-c6a41e6fd7b2",
         "position": {
-          "x": 273.2166748046875,
-          "y": 37
+          "x": 46,
+          "y": 35
         },
         "orientation": 0,
         "type": "input-output",
@@ -22,13 +22,13 @@
             "id": "laz_files",
             "type": "right",
             "position": {
-              "x": 219,
-              "y": 74
+              "x": 220,
+              "y": 74.5
             }
           }
         },
         "properties": {
-          "title": "S1 Fetch Laz Files-dev-user-name-at-domain-com",
+          "title": "S1 Fetch Laz Files-spiros-koulouzis-at-lifewatch-eu",
           "vars": [
             {
               "name": "laz_files",
@@ -41,19 +41,16 @@
             "param_hostname",
             "param_username",
             "param_password",
-            "param_remote_server_type",
-            "param_minio_server",
-            "param_bucket_name",
-            "param_remote_path_root"
+            "param_remote_server_type"
           ],
           "inputs": [],
           "outputs": [
             "laz_files"
           ],
-          "og_node_id": "285d7ad",
+          "og_node_id": "b926ebf",
           "deps": [
-            "laserfarm",
             "",
+            "laserfarm",
             "minio"
           ]
         },
@@ -62,11 +59,54 @@
           "height": 150
         }
       },
-      "365d57dd-81f7-477b-8398-264e0cc24015": {
-        "id": "365d57dd-81f7-477b-8398-264e0cc24015",
+      "dde449bd-aa75-47c9-92e5-ca76bf1867ad": {
+        "id": "dde449bd-aa75-47c9-92e5-ca76bf1867ad",
         "position": {
-          "x": 881.2166748046875,
-          "y": 17
+          "x": 417,
+          "y": 23
+        },
+        "orientation": 0,
+        "type": "splitter",
+        "ports": {
+          "splitter_source": {
+            "id": "splitter_source",
+            "type": "left",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 0.5,
+              "y": 49.5
+            }
+          },
+          "splitter_target": {
+            "id": "splitter_target",
+            "type": "right",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 197.5,
+              "y": 49.5
+            }
+          }
+        },
+        "properties": {
+          "title": "Splitter",
+          "scalingFactor": 1
+        },
+        "size": {
+          "width": 200,
+          "height": 100
+        }
+      },
+      "14942cc2-b64e-4807-8ab6-166e7037fc72": {
+        "id": "14942cc2-b64e-4807-8ab6-166e7037fc72",
+        "position": {
+          "x": 819,
+          "y": 49
         },
         "orientation": 0,
         "type": "input-output",
@@ -79,7 +119,7 @@
             "type": "left",
             "position": {
               "x": 28,
-              "y": 74
+              "y": 74.5
             }
           },
           "S2_done": {
@@ -90,12 +130,12 @@
             "type": "right",
             "position": {
               "x": 217.5,
-              "y": 74
+              "y": 74.5
             }
           }
         },
         "properties": {
-          "title": "S2 split big files local minio-dev-user-name-at-domain-com",
+          "title": "S2 split big files local minio-spiros-koulouzis-at-lifewatch-eu",
           "vars": [
             {
               "name": "laz_files",
@@ -114,10 +154,7 @@
             "param_hostname",
             "param_username",
             "param_password",
-            "param_minio_server",
             "param_remote_server_type",
-            "param_remote_path_root",
-            "param_bucket_name",
             "param_max_filesize"
           ],
           "inputs": [
@@ -126,7 +163,7 @@
           "outputs": [
             "S2_done"
           ],
-          "og_node_id": "4c20de1",
+          "og_node_id": "834a2ba",
           "deps": [
             "",
             "minio",
@@ -138,54 +175,11 @@
           "height": 150
         }
       },
-      "1abe8c59-5f8e-40bf-a0df-8fa662aef000": {
-        "id": "1abe8c59-5f8e-40bf-a0df-8fa662aef000",
+      "fd7999b5-a3a8-48a4-8c84-500658cfa59b": {
+        "id": "fd7999b5-a3a8-48a4-8c84-500658cfa59b",
         "position": {
-          "x": 607.2166748046875,
-          "y": 52
-        },
-        "orientation": 0,
-        "type": "splitter",
-        "ports": {
-          "splitter_source": {
-            "id": "splitter_source",
-            "type": "left",
-            "properties": {
-              "special_node": 1,
-              "color": "#000000"
-            },
-            "position": {
-              "x": 0.5,
-              "y": 48.5
-            }
-          },
-          "splitter_target": {
-            "id": "splitter_target",
-            "type": "right",
-            "properties": {
-              "special_node": 1,
-              "color": "#000000"
-            },
-            "position": {
-              "x": 197.5,
-              "y": 48.5
-            }
-          }
-        },
-        "properties": {
-          "title": "Splitter",
-          "scalingFactor": 1
-        },
-        "size": {
-          "width": 200,
-          "height": 100
-        }
-      },
-      "bc0d0af6-3e99-49af-a3c9-baa805165151": {
-        "id": "bc0d0af6-3e99-49af-a3c9-baa805165151",
-        "position": {
-          "x": 1178.2166748046875,
-          "y": 9
+          "x": 1198,
+          "y": 40
         },
         "orientation": 0,
         "type": "input-output",
@@ -198,7 +192,7 @@
             "type": "left",
             "position": {
               "x": 30.5,
-              "y": 74
+              "y": 74.5
             }
           },
           "split_laz_files": {
@@ -209,12 +203,12 @@
             "type": "right",
             "position": {
               "x": 201.5,
-              "y": 74
+              "y": 74.5
             }
           }
         },
         "properties": {
-          "title": "S21 Fetch Laz Files local-dev-user-name-at-domain-com",
+          "title": "S21 Fetch Laz Files local-spiros-koulouzis-at-lifewatch-eu",
           "vars": [
             {
               "name": "S2_done",
@@ -236,7 +230,7 @@
           "outputs": [
             "split_laz_files"
           ],
-          "og_node_id": "8bccbb2",
+          "og_node_id": "8bee5d4",
           "deps": [
             ""
           ]
@@ -246,54 +240,11 @@
           "height": 150
         }
       },
-      "2b4e792b-d247-48f5-91ae-e3ed8cfa589d": {
-        "id": "2b4e792b-d247-48f5-91ae-e3ed8cfa589d",
+      "1ad86a87-e093-49e0-bd63-806f456a0477": {
+        "id": "1ad86a87-e093-49e0-bd63-806f456a0477",
         "position": {
-          "x": 1550.2166748046875,
-          "y": 20
-        },
-        "orientation": 0,
-        "type": "splitter",
-        "ports": {
-          "splitter_source": {
-            "id": "splitter_source",
-            "type": "left",
-            "properties": {
-              "special_node": 1,
-              "color": "#000000"
-            },
-            "position": {
-              "x": 0.5,
-              "y": 48.5
-            }
-          },
-          "splitter_target": {
-            "id": "splitter_target",
-            "type": "right",
-            "properties": {
-              "special_node": 1,
-              "color": "#000000"
-            },
-            "position": {
-              "x": 197.5,
-              "y": 48.5
-            }
-          }
-        },
-        "properties": {
-          "title": "Splitter",
-          "scalingFactor": 1
-        },
-        "size": {
-          "width": 200,
-          "height": 100
-        }
-      },
-      "bec2e356-55cb-4489-8f07-e3c7f81791f9": {
-        "id": "bec2e356-55cb-4489-8f07-e3c7f81791f9",
-        "position": {
-          "x": 1846.2166748046875,
-          "y": 0
+          "x": 1843,
+          "y": 12
         },
         "orientation": 0,
         "type": "input-output",
@@ -306,7 +257,7 @@
             "type": "left",
             "position": {
               "x": 46.5,
-              "y": 74
+              "y": 74.5
             }
           },
           "S3_done": {
@@ -317,12 +268,12 @@
             "type": "right",
             "position": {
               "x": 217.5,
-              "y": 74
+              "y": 74.5
             }
           }
         },
         "properties": {
-          "title": "S3 Retiling local-dev-user-name-at-domain-com",
+          "title": "S3 Retiling local-spiros-koulouzis-at-lifewatch-eu",
           "vars": [
             {
               "name": "split_laz_files",
@@ -344,10 +295,10 @@
           "outputs": [
             "S3_done"
           ],
-          "og_node_id": "cdf3b21",
+          "og_node_id": "d944790",
           "deps": [
-            "laserfarm",
-            ""
+            "",
+            "laserfarm"
           ]
         },
         "size": {
@@ -355,11 +306,54 @@
           "height": 150
         }
       },
-      "3469c87d-95f8-4878-8fb6-d5b1344b09d6": {
-        "id": "3469c87d-95f8-4878-8fb6-d5b1344b09d6",
+      "16164577-3f7f-499b-a749-710e8330327a": {
+        "id": "16164577-3f7f-499b-a749-710e8330327a",
         "position": {
-          "x": 2194.2166748046875,
-          "y": 0
+          "x": 1520,
+          "y": 37
+        },
+        "orientation": 0,
+        "type": "splitter",
+        "ports": {
+          "splitter_source": {
+            "id": "splitter_source",
+            "type": "left",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 0.5,
+              "y": 49.5
+            }
+          },
+          "splitter_target": {
+            "id": "splitter_target",
+            "type": "right",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 197.5,
+              "y": 49.5
+            }
+          }
+        },
+        "properties": {
+          "title": "Splitter",
+          "scalingFactor": 1
+        },
+        "size": {
+          "width": 200,
+          "height": 100
+        }
+      },
+      "94af21ee-1590-444f-b067-9f6148e4ddfd": {
+        "id": "94af21ee-1590-444f-b067-9f6148e4ddfd",
+        "position": {
+          "x": 2232,
+          "y": 15
         },
         "orientation": 0,
         "type": "input-output",
@@ -372,7 +366,7 @@
             "type": "left",
             "position": {
               "x": 30.5,
-              "y": 74
+              "y": 74.5
             }
           },
           "tiles": {
@@ -383,12 +377,12 @@
             "type": "right",
             "position": {
               "x": 233,
-              "y": 74
+              "y": 74.5
             }
           }
         },
         "properties": {
-          "title": "S4 Retrive retiled tiles local-dev-user-name-at-domain-com",
+          "title": "S4 Retrive retiled tiles local-spiros-koulouzis-at-lifewatch-eu",
           "vars": [
             {
               "name": "S3_done",
@@ -410,7 +404,7 @@
           "outputs": [
             "tiles"
           ],
-          "og_node_id": "e000bda",
+          "og_node_id": "0c18a1d",
           "deps": [
             ""
           ]
@@ -420,10 +414,53 @@
           "height": 150
         }
       },
-      "bf8d8fef-c076-4c7c-ba8a-9c17444e485e": {
-        "id": "bf8d8fef-c076-4c7c-ba8a-9c17444e485e",
+      "c50fc2da-9539-495c-88df-177404afbca9": {
+        "id": "c50fc2da-9539-495c-88df-177404afbca9",
         "position": {
-          "x": 2898.2166748046875,
+          "x": 2643,
+          "y": 25
+        },
+        "orientation": 0,
+        "type": "splitter",
+        "ports": {
+          "splitter_source": {
+            "id": "splitter_source",
+            "type": "left",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 0.5,
+              "y": 49.5
+            }
+          },
+          "splitter_target": {
+            "id": "splitter_target",
+            "type": "right",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 197.5,
+              "y": 49.5
+            }
+          }
+        },
+        "properties": {
+          "title": "Splitter",
+          "scalingFactor": 1
+        },
+        "size": {
+          "width": 200,
+          "height": 100
+        }
+      },
+      "ec38a68c-4ffe-4526-a840-628caa7d71c9": {
+        "id": "ec38a68c-4ffe-4526-a840-628caa7d71c9",
+        "position": {
+          "x": 2945,
           "y": 0
         },
         "orientation": 0,
@@ -437,7 +474,7 @@
             "type": "left",
             "position": {
               "x": 15,
-              "y": 74
+              "y": 74.5
             }
           },
           "S5_done": {
@@ -448,12 +485,12 @@
             "type": "right",
             "position": {
               "x": 217.5,
-              "y": 74
+              "y": 74.5
             }
           }
         },
         "properties": {
-          "title": "S5 Feature Extraction local-dev-user-name-at-domain-com",
+          "title": "S5 Feature Extraction local-spiros-koulouzis-at-lifewatch-eu",
           "vars": [
             {
               "name": "tiles",
@@ -475,7 +512,7 @@
           "outputs": [
             "S5_done"
           ],
-          "og_node_id": "2b3f9ac",
+          "og_node_id": "3a5308d",
           "deps": [
             "",
             "laserfarm"
@@ -486,54 +523,11 @@
           "height": 150
         }
       },
-      "bd568d3c-21e1-48cb-b8f7-19482b99ae9e": {
-        "id": "bd568d3c-21e1-48cb-b8f7-19482b99ae9e",
+      "58fb21d8-f4cc-404c-99ae-d85e9586b11d": {
+        "id": "58fb21d8-f4cc-404c-99ae-d85e9586b11d",
         "position": {
-          "x": 2547.2166748046875,
-          "y": 0
-        },
-        "orientation": 0,
-        "type": "splitter",
-        "ports": {
-          "splitter_source": {
-            "id": "splitter_source",
-            "type": "left",
-            "properties": {
-              "special_node": 1,
-              "color": "#000000"
-            },
-            "position": {
-              "x": 0.5,
-              "y": 48.5
-            }
-          },
-          "splitter_target": {
-            "id": "splitter_target",
-            "type": "right",
-            "properties": {
-              "special_node": 1,
-              "color": "#000000"
-            },
-            "position": {
-              "x": 197.5,
-              "y": 48.5
-            }
-          }
-        },
-        "properties": {
-          "title": "Splitter",
-          "scalingFactor": 1
-        },
-        "size": {
-          "width": 200,
-          "height": 100
-        }
-      },
-      "23c4b984-39b1-48b5-bd2b-065e2f09dc38": {
-        "id": "23c4b984-39b1-48b5-bd2b-065e2f09dc38",
-        "position": {
-          "x": 3241.2166748046875,
-          "y": 0
+          "x": 3360,
+          "y": 8
         },
         "orientation": 0,
         "type": "input-output",
@@ -546,7 +540,7 @@
             "type": "left",
             "position": {
               "x": 30.5,
-              "y": 74
+              "y": 74.5
             }
           },
           "S6_done": {
@@ -557,12 +551,12 @@
             "type": "right",
             "position": {
               "x": 217.5,
-              "y": 74
+              "y": 74.5
             }
           }
         },
         "properties": {
-          "title": "S6 GeoTIFF Export local-dev-user-name-at-domain-com",
+          "title": "S6 GeoTIFF Export local-spiros-koulouzis-at-lifewatch-eu",
           "vars": [
             {
               "name": "S5_done",
@@ -588,10 +582,10 @@
           "outputs": [
             "S6_done"
           ],
-          "og_node_id": "632b14c",
+          "og_node_id": "831b548",
           "deps": [
-            "laserfarm",
-            ""
+            "",
+            "laserfarm"
           ]
         },
         "size": {
@@ -599,10 +593,10 @@
           "height": 150
         }
       },
-      "93045808-654f-4fe3-9007-e5aaffb50038": {
-        "id": "93045808-654f-4fe3-9007-e5aaffb50038",
+      "221c1930-ce95-4223-a84c-985d7a60ef00": {
+        "id": "221c1930-ce95-4223-a84c-985d7a60ef00",
         "position": {
-          "x": 3550.2166748046875,
+          "x": 3768,
           "y": 0
         },
         "orientation": 0,
@@ -616,29 +610,7 @@
             "type": "left",
             "position": {
               "x": 30.5,
-              "y": 74
-            }
-          },
-          "username": {
-            "properties": {
-              "color": "#d2b979"
-            },
-            "id": "username",
-            "type": "right",
-            "position": {
-              "x": 212.5,
-              "y": 14
-            }
-          },
-          "mode": {
-            "properties": {
-              "color": "#2daed2"
-            },
-            "id": "mode",
-            "type": "right",
-            "position": {
-              "x": 212.5,
-              "y": 42
+              "y": 74.5
             }
           },
           "password": {
@@ -649,18 +621,7 @@
             "type": "right",
             "position": {
               "x": 212.5,
-              "y": 70
-            }
-          },
-          "num": {
-            "properties": {
-              "color": "#87c587"
-            },
-            "id": "num",
-            "type": "right",
-            "position": {
-              "x": 212.5,
-              "y": 98
+              "y": 14.5
             }
           },
           "output": {
@@ -671,18 +632,7 @@
             "type": "right",
             "position": {
               "x": 212.5,
-              "y": 126
-            }
-          },
-          "remote": {
-            "properties": {
-              "color": "#502d86"
-            },
-            "id": "remote",
-            "type": "right",
-            "position": {
-              "x": 212.5,
-              "y": 154
+              "y": 43.5
             }
           },
           "hostname": {
@@ -693,18 +643,92 @@
             "type": "right",
             "position": {
               "x": 212.5,
-              "y": 182
+              "y": 71.5
+            }
+          },
+          "remote": {
+            "properties": {
+              "color": "#502d86"
+            },
+            "id": "remote",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 100.5
+            }
+          },
+          "num": {
+            "properties": {
+              "color": "#87c587"
+            },
+            "id": "num",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 128.5
+            }
+          },
+          "username": {
+            "properties": {
+              "color": "#d2b979"
+            },
+            "id": "username",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 157.5
+            }
+          },
+          "mode": {
+            "properties": {
+              "color": "#2daed2"
+            },
+            "id": "mode",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 185.5
             }
           }
         },
         "properties": {
-          "title": "param vislulization-dev-user-name-at-domain-com",
+          "title": "param vislulization-spiros-koulouzis-at-lifewatch-eu",
           "vars": [
             {
               "name": "S6_done",
               "direction": "input",
               "type": "datatype",
               "color": "#2d35d2"
+            },
+            {
+              "name": "password",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#8779d2"
+            },
+            {
+              "name": "output",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#1f932b"
+            },
+            {
+              "name": "hostname",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#2d40d2"
+            },
+            {
+              "name": "remote",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#502d86"
+            },
+            {
+              "name": "num",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#87c587"
             },
             {
               "name": "username",
@@ -717,36 +741,6 @@
               "direction": "output",
               "type": "datatype",
               "color": "#2daed2"
-            },
-            {
-              "name": "password",
-              "direction": "output",
-              "type": "datatype",
-              "color": "#8779d2"
-            },
-            {
-              "name": "num",
-              "direction": "output",
-              "type": "datatype",
-              "color": "#87c587"
-            },
-            {
-              "name": "output",
-              "direction": "output",
-              "type": "datatype",
-              "color": "#1f932b"
-            },
-            {
-              "name": "remote",
-              "direction": "output",
-              "type": "datatype",
-              "color": "#502d86"
-            },
-            {
-              "name": "hostname",
-              "direction": "output",
-              "type": "datatype",
-              "color": "#2d40d2"
             }
           ],
           "params": [
@@ -758,15 +752,15 @@
             "S6_done"
           ],
           "outputs": [
-            "username",
-            "mode",
             "password",
-            "num",
             "output",
+            "hostname",
             "remote",
-            "hostname"
+            "num",
+            "username",
+            "mode"
           ],
-          "og_node_id": "ab8bbf9",
+          "og_node_id": "d96683b",
           "deps": [
             ""
           ]
@@ -776,10 +770,10 @@
           "height": 150
         }
       },
-      "cbd38822-b325-4f23-abb9-e4bd1a216836": {
-        "id": "cbd38822-b325-4f23-abb9-e4bd1a216836",
+      "f7d416a9-0275-4088-b0f7-418b295c83bc": {
+        "id": "f7d416a9-0275-4088-b0f7-418b295c83bc",
         "position": {
-          "x": 4109.2166748046875,
+          "x": 4170,
           "y": 0
         },
         "orientation": 0,
@@ -793,7 +787,7 @@
             },
             "position": {
               "x": 35.5,
-              "y": 14
+              "y": 14.5
             }
           },
           "username": {
@@ -804,7 +798,7 @@
             },
             "position": {
               "x": 35.5,
-              "y": 42
+              "y": 43.5
             }
           },
           "password": {
@@ -815,7 +809,7 @@
             },
             "position": {
               "x": 35.5,
-              "y": 70
+              "y": 71.5
             }
           },
           "remote": {
@@ -826,7 +820,7 @@
             },
             "position": {
               "x": 35.5,
-              "y": 98
+              "y": 100.5
             }
           },
           "num": {
@@ -837,7 +831,7 @@
             },
             "position": {
               "x": 35.5,
-              "y": 126
+              "y": 128.5
             }
           },
           "mode": {
@@ -848,7 +842,7 @@
             },
             "position": {
               "x": 35.5,
-              "y": 154
+              "y": 157.5
             }
           },
           "output": {
@@ -859,7 +853,7 @@
             },
             "position": {
               "x": 35.5,
-              "y": 182
+              "y": 185.5
             }
           }
         },
@@ -874,191 +868,191 @@
       }
     },
     "links": {
-      "9acf3dff-ef49-49d9-85d5-0e9c7f16e9e9": {
-        "id": "9acf3dff-ef49-49d9-85d5-0e9c7f16e9e9",
+      "9f66dba7-6092-4262-9627-a04bb3e98233": {
+        "id": "9f66dba7-6092-4262-9627-a04bb3e98233",
         "from": {
-          "nodeId": "e49cd8eb-11ec-44a5-aae8-cde7bc90b639",
+          "nodeId": "9c6d1c6b-5a18-4be5-822c-c6a41e6fd7b2",
           "portId": "laz_files"
         },
         "to": {
-          "nodeId": "1abe8c59-5f8e-40bf-a0df-8fa662aef000",
+          "nodeId": "dde449bd-aa75-47c9-92e5-ca76bf1867ad",
           "portId": "splitter_source"
         }
       },
-      "62d500ec-9221-4bbe-866f-97728deede38": {
-        "id": "62d500ec-9221-4bbe-866f-97728deede38",
+      "f3d8e78a-77ad-43a2-b165-75cd6312b642": {
+        "id": "f3d8e78a-77ad-43a2-b165-75cd6312b642",
         "from": {
-          "nodeId": "1abe8c59-5f8e-40bf-a0df-8fa662aef000",
+          "nodeId": "dde449bd-aa75-47c9-92e5-ca76bf1867ad",
           "portId": "splitter_target"
         },
         "to": {
-          "nodeId": "365d57dd-81f7-477b-8398-264e0cc24015",
+          "nodeId": "14942cc2-b64e-4807-8ab6-166e7037fc72",
           "portId": "laz_files"
         }
       },
-      "6f3a882a-810c-4b25-b84d-c9b172c96f81": {
-        "id": "6f3a882a-810c-4b25-b84d-c9b172c96f81",
+      "cad045ad-166c-43f3-b61d-1a9e19aced3d": {
+        "id": "cad045ad-166c-43f3-b61d-1a9e19aced3d",
         "from": {
-          "nodeId": "365d57dd-81f7-477b-8398-264e0cc24015",
+          "nodeId": "14942cc2-b64e-4807-8ab6-166e7037fc72",
           "portId": "S2_done"
         },
         "to": {
-          "nodeId": "bc0d0af6-3e99-49af-a3c9-baa805165151",
+          "nodeId": "fd7999b5-a3a8-48a4-8c84-500658cfa59b",
           "portId": "S2_done"
         }
       },
-      "a83b3426-9fcc-43c2-a4cc-864eccf28198": {
-        "id": "a83b3426-9fcc-43c2-a4cc-864eccf28198",
+      "5a340eec-6957-45f2-965e-215ca6d51847": {
+        "id": "5a340eec-6957-45f2-965e-215ca6d51847",
         "from": {
-          "nodeId": "bc0d0af6-3e99-49af-a3c9-baa805165151",
+          "nodeId": "fd7999b5-a3a8-48a4-8c84-500658cfa59b",
           "portId": "split_laz_files"
         },
         "to": {
-          "nodeId": "2b4e792b-d247-48f5-91ae-e3ed8cfa589d",
+          "nodeId": "16164577-3f7f-499b-a749-710e8330327a",
           "portId": "splitter_source"
         }
       },
-      "c20cc0b0-0a66-4969-91af-b5fb2b625aa4": {
-        "id": "c20cc0b0-0a66-4969-91af-b5fb2b625aa4",
+      "68fd2276-0a5a-48c2-a8cb-4c3e24661848": {
+        "id": "68fd2276-0a5a-48c2-a8cb-4c3e24661848",
         "from": {
-          "nodeId": "2b4e792b-d247-48f5-91ae-e3ed8cfa589d",
+          "nodeId": "16164577-3f7f-499b-a749-710e8330327a",
           "portId": "splitter_target"
         },
         "to": {
-          "nodeId": "bec2e356-55cb-4489-8f07-e3c7f81791f9",
+          "nodeId": "1ad86a87-e093-49e0-bd63-806f456a0477",
           "portId": "split_laz_files"
         }
       },
-      "53e855f0-e832-483d-a55e-d64383d0ff1a": {
-        "id": "53e855f0-e832-483d-a55e-d64383d0ff1a",
+      "8c85d730-eecd-4e0e-ac8f-0e5a403145ca": {
+        "id": "8c85d730-eecd-4e0e-ac8f-0e5a403145ca",
         "from": {
-          "nodeId": "bec2e356-55cb-4489-8f07-e3c7f81791f9",
+          "nodeId": "1ad86a87-e093-49e0-bd63-806f456a0477",
           "portId": "S3_done"
         },
         "to": {
-          "nodeId": "3469c87d-95f8-4878-8fb6-d5b1344b09d6",
+          "nodeId": "94af21ee-1590-444f-b067-9f6148e4ddfd",
           "portId": "S3_done"
         }
       },
-      "1670111e-b494-4b21-ba0f-341a98e24fe1": {
-        "id": "1670111e-b494-4b21-ba0f-341a98e24fe1",
+      "7b48ba6a-b21b-43bf-9d0b-538d314e469f": {
+        "id": "7b48ba6a-b21b-43bf-9d0b-538d314e469f",
         "from": {
-          "nodeId": "3469c87d-95f8-4878-8fb6-d5b1344b09d6",
+          "nodeId": "94af21ee-1590-444f-b067-9f6148e4ddfd",
           "portId": "tiles"
         },
         "to": {
-          "nodeId": "bd568d3c-21e1-48cb-b8f7-19482b99ae9e",
+          "nodeId": "c50fc2da-9539-495c-88df-177404afbca9",
           "portId": "splitter_source"
         }
       },
-      "30f9061a-726d-4bed-bdd5-6d401c2b376d": {
-        "id": "30f9061a-726d-4bed-bdd5-6d401c2b376d",
+      "e6bf7c7e-2c8a-4795-b7c5-43dfac1143f5": {
+        "id": "e6bf7c7e-2c8a-4795-b7c5-43dfac1143f5",
         "from": {
-          "nodeId": "bd568d3c-21e1-48cb-b8f7-19482b99ae9e",
+          "nodeId": "c50fc2da-9539-495c-88df-177404afbca9",
           "portId": "splitter_target"
         },
         "to": {
-          "nodeId": "bf8d8fef-c076-4c7c-ba8a-9c17444e485e",
+          "nodeId": "ec38a68c-4ffe-4526-a840-628caa7d71c9",
           "portId": "tiles"
         }
       },
-      "4cd5030b-984e-48b9-9fb8-b2d395057527": {
-        "id": "4cd5030b-984e-48b9-9fb8-b2d395057527",
+      "8329cc3b-5644-48ec-8d1e-c45b4407aa4d": {
+        "id": "8329cc3b-5644-48ec-8d1e-c45b4407aa4d",
         "from": {
-          "nodeId": "bf8d8fef-c076-4c7c-ba8a-9c17444e485e",
+          "nodeId": "ec38a68c-4ffe-4526-a840-628caa7d71c9",
           "portId": "S5_done"
         },
         "to": {
-          "nodeId": "23c4b984-39b1-48b5-bd2b-065e2f09dc38",
+          "nodeId": "58fb21d8-f4cc-404c-99ae-d85e9586b11d",
           "portId": "S5_done"
         }
       },
-      "d77300f4-3d50-457d-a661-aa304dc6b8d5": {
-        "id": "d77300f4-3d50-457d-a661-aa304dc6b8d5",
+      "f84f31fb-1b8c-4ef3-85a0-105207b43ace": {
+        "id": "f84f31fb-1b8c-4ef3-85a0-105207b43ace",
         "from": {
-          "nodeId": "23c4b984-39b1-48b5-bd2b-065e2f09dc38",
+          "nodeId": "58fb21d8-f4cc-404c-99ae-d85e9586b11d",
           "portId": "S6_done"
         },
         "to": {
-          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
+          "nodeId": "221c1930-ce95-4223-a84c-985d7a60ef00",
           "portId": "S6_done"
         }
       },
-      "3310ebb0-9587-4b30-9467-5e2cf9251f8f": {
-        "id": "3310ebb0-9587-4b30-9467-5e2cf9251f8f",
+      "0de608b6-7264-4a6f-9de5-4da2b09c61fa": {
+        "id": "0de608b6-7264-4a6f-9de5-4da2b09c61fa",
         "from": {
-          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
-          "portId": "hostname"
-        },
-        "to": {
-          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
-          "portId": "hostname"
-        }
-      },
-      "5853d650-b994-4cfb-9987-ebed2f900ae3": {
-        "id": "5853d650-b994-4cfb-9987-ebed2f900ae3",
-        "from": {
-          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
-          "portId": "remote"
-        },
-        "to": {
-          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
-          "portId": "remote"
-        }
-      },
-      "01e12c8f-6564-4dab-ba9c-61f95626aad1": {
-        "id": "01e12c8f-6564-4dab-ba9c-61f95626aad1",
-        "from": {
-          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
-          "portId": "output"
-        },
-        "to": {
-          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
-          "portId": "output"
-        }
-      },
-      "57132e79-6d92-4472-b037-e14be47771bd": {
-        "id": "57132e79-6d92-4472-b037-e14be47771bd",
-        "from": {
-          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
-          "portId": "num"
-        },
-        "to": {
-          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
-          "portId": "num"
-        }
-      },
-      "a7a52b4e-d3e6-4b2b-adf6-6ec5e5ab5804": {
-        "id": "a7a52b4e-d3e6-4b2b-adf6-6ec5e5ab5804",
-        "from": {
-          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
-          "portId": "password"
-        },
-        "to": {
-          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
-          "portId": "password"
-        }
-      },
-      "4282f6c0-13d4-4fb0-b4a4-f559ccbb0624": {
-        "id": "4282f6c0-13d4-4fb0-b4a4-f559ccbb0624",
-        "from": {
-          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
+          "nodeId": "221c1930-ce95-4223-a84c-985d7a60ef00",
           "portId": "mode"
         },
         "to": {
-          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
+          "nodeId": "f7d416a9-0275-4088-b0f7-418b295c83bc",
           "portId": "mode"
         }
       },
-      "a45d4ad3-d417-4c6b-a47b-41bbc0e6d2ca": {
-        "id": "a45d4ad3-d417-4c6b-a47b-41bbc0e6d2ca",
+      "68ff9343-2778-46a7-9fc0-d77310b51610": {
+        "id": "68ff9343-2778-46a7-9fc0-d77310b51610",
         "from": {
-          "nodeId": "93045808-654f-4fe3-9007-e5aaffb50038",
+          "nodeId": "221c1930-ce95-4223-a84c-985d7a60ef00",
           "portId": "username"
         },
         "to": {
-          "nodeId": "cbd38822-b325-4f23-abb9-e4bd1a216836",
+          "nodeId": "f7d416a9-0275-4088-b0f7-418b295c83bc",
           "portId": "username"
+        }
+      },
+      "7b457acf-a1a6-4f5f-a89d-971bc958c0ab": {
+        "id": "7b457acf-a1a6-4f5f-a89d-971bc958c0ab",
+        "from": {
+          "nodeId": "221c1930-ce95-4223-a84c-985d7a60ef00",
+          "portId": "num"
+        },
+        "to": {
+          "nodeId": "f7d416a9-0275-4088-b0f7-418b295c83bc",
+          "portId": "num"
+        }
+      },
+      "2142de74-d782-486b-9a6c-5b621e9da783": {
+        "id": "2142de74-d782-486b-9a6c-5b621e9da783",
+        "from": {
+          "nodeId": "221c1930-ce95-4223-a84c-985d7a60ef00",
+          "portId": "remote"
+        },
+        "to": {
+          "nodeId": "f7d416a9-0275-4088-b0f7-418b295c83bc",
+          "portId": "remote"
+        }
+      },
+      "226c60fd-3eb9-4015-bf4f-4016b1278c53": {
+        "id": "226c60fd-3eb9-4015-bf4f-4016b1278c53",
+        "from": {
+          "nodeId": "221c1930-ce95-4223-a84c-985d7a60ef00",
+          "portId": "hostname"
+        },
+        "to": {
+          "nodeId": "f7d416a9-0275-4088-b0f7-418b295c83bc",
+          "portId": "hostname"
+        }
+      },
+      "c401ceb4-a855-4ff8-8100-79db6965a3ae": {
+        "id": "c401ceb4-a855-4ff8-8100-79db6965a3ae",
+        "from": {
+          "nodeId": "221c1930-ce95-4223-a84c-985d7a60ef00",
+          "portId": "output"
+        },
+        "to": {
+          "nodeId": "f7d416a9-0275-4088-b0f7-418b295c83bc",
+          "portId": "output"
+        }
+      },
+      "851bf754-5286-4885-8730-0871ad3be5b3": {
+        "id": "851bf754-5286-4885-8730-0871ad3be5b3",
+        "from": {
+          "nodeId": "221c1930-ce95-4223-a84c-985d7a60ef00",
+          "portId": "password"
+        },
+        "to": {
+          "nodeId": "f7d416a9-0275-4088-b0f7-418b295c83bc",
+          "portId": "password"
         }
       }
     },
