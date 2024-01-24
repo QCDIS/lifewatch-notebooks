@@ -1,0 +1,1068 @@
+{
+  "chart": {
+    "offset": {
+      "x": -3306,
+      "y": 303
+    },
+    "scale": 1,
+    "nodes": {
+      "070c1a00-436d-4994-98be-c155e1af9b7e": {
+        "id": "070c1a00-436d-4994-98be-c155e1af9b7e",
+        "position": {
+          "x": 343,
+          "y": 105
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "laz_files": {
+            "properties": {
+              "color": "#e0cc6c"
+            },
+            "id": "laz_files",
+            "type": "right",
+            "position": {
+              "x": 220,
+              "y": 74.5
+            }
+          }
+        },
+        "properties": {
+          "title": "S1 Fetch Laz Files-spiros-koulouzis-at-lifewatch-eu",
+          "vars": [
+            {
+              "name": "laz_files",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#e0cc6c"
+            }
+          ],
+          "params": [
+            "param_hostname",
+            "param_username",
+            "param_password",
+            "param_remote_server_type",
+            "param_minio_server",
+            "param_bucket_name",
+            "param_remote_path_root"
+          ],
+          "inputs": [],
+          "outputs": [
+            "laz_files"
+          ],
+          "og_node_id": "16c5ced",
+          "deps": [
+            "",
+            "minio",
+            "laserfarm"
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "d1bce8b8-0f30-4b28-a0c3-c0bde5e37e30": {
+        "id": "d1bce8b8-0f30-4b28-a0c3-c0bde5e37e30",
+        "position": {
+          "x": 697,
+          "y": 98
+        },
+        "orientation": 0,
+        "type": "splitter",
+        "ports": {
+          "splitter_source": {
+            "id": "splitter_source",
+            "type": "left",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 0.5,
+              "y": 49.5
+            }
+          },
+          "splitter_target": {
+            "id": "splitter_target",
+            "type": "right",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 197.5,
+              "y": 49.5
+            }
+          }
+        },
+        "properties": {
+          "title": "Splitter",
+          "scalingFactor": 1
+        },
+        "size": {
+          "width": 200,
+          "height": 100
+        }
+      },
+      "b696288b-deaa-43cb-8696-af7efefa999a": {
+        "id": "b696288b-deaa-43cb-8696-af7efefa999a",
+        "position": {
+          "x": 992,
+          "y": 73
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "laz_files": {
+            "properties": {
+              "color": "#e0cc6c"
+            },
+            "id": "laz_files",
+            "type": "left",
+            "position": {
+              "x": 28,
+              "y": 74.5
+            }
+          },
+          "S2_done": {
+            "properties": {
+              "color": "#862d56"
+            },
+            "id": "S2_done",
+            "type": "right",
+            "position": {
+              "x": 217.5,
+              "y": 74.5
+            }
+          }
+        },
+        "properties": {
+          "title": "S2 split big files local minio-spiros-koulouzis-at-lifewatch-eu",
+          "vars": [
+            {
+              "name": "laz_files",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#e0cc6c"
+            },
+            {
+              "name": "S2_done",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#862d56"
+            }
+          ],
+          "params": [
+            "param_hostname",
+            "param_username",
+            "param_password",
+            "param_minio_server",
+            "param_remote_server_type",
+            "param_remote_path_root",
+            "param_bucket_name",
+            "param_max_filesize"
+          ],
+          "inputs": [
+            "laz_files"
+          ],
+          "outputs": [
+            "S2_done"
+          ],
+          "og_node_id": "24462d2",
+          "deps": [
+            "",
+            "minio",
+            "webdav3"
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "0f91e67a-d431-4169-85db-bce557fd8cc7": {
+        "id": "0f91e67a-d431-4169-85db-bce557fd8cc7",
+        "position": {
+          "x": 1317,
+          "y": 63
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "S2_done": {
+            "properties": {
+              "color": "#862d56"
+            },
+            "id": "S2_done",
+            "type": "left",
+            "position": {
+              "x": 30.5,
+              "y": 74.5
+            }
+          },
+          "split_laz_files": {
+            "properties": {
+              "color": "#5382ac"
+            },
+            "id": "split_laz_files",
+            "type": "right",
+            "position": {
+              "x": 201.5,
+              "y": 74.5
+            }
+          }
+        },
+        "properties": {
+          "title": "S21 Fetch Laz Files local-spiros-koulouzis-at-lifewatch-eu",
+          "vars": [
+            {
+              "name": "S2_done",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#862d56"
+            },
+            {
+              "name": "split_laz_files",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#5382ac"
+            }
+          ],
+          "params": [],
+          "inputs": [
+            "S2_done"
+          ],
+          "outputs": [
+            "split_laz_files"
+          ],
+          "og_node_id": "de90bfc",
+          "deps": [
+            ""
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "160e39af-1b17-4511-ae2e-0cc5252e8769": {
+        "id": "160e39af-1b17-4511-ae2e-0cc5252e8769",
+        "position": {
+          "x": 1682,
+          "y": 65
+        },
+        "orientation": 0,
+        "type": "splitter",
+        "ports": {
+          "splitter_source": {
+            "id": "splitter_source",
+            "type": "left",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 0.5,
+              "y": 49.5
+            }
+          },
+          "splitter_target": {
+            "id": "splitter_target",
+            "type": "right",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 197.5,
+              "y": 49.5
+            }
+          }
+        },
+        "properties": {
+          "title": "Splitter",
+          "scalingFactor": 1
+        },
+        "size": {
+          "width": 200,
+          "height": 100
+        }
+      },
+      "4fec5253-13a8-4515-bb7a-0f9a959724fa": {
+        "id": "4fec5253-13a8-4515-bb7a-0f9a959724fa",
+        "position": {
+          "x": 1977,
+          "y": 47
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "split_laz_files": {
+            "properties": {
+              "color": "#5382ac"
+            },
+            "id": "split_laz_files",
+            "type": "left",
+            "position": {
+              "x": 46.5,
+              "y": 74.5
+            }
+          },
+          "S3_done": {
+            "properties": {
+              "color": "#ac53a9"
+            },
+            "id": "S3_done",
+            "type": "right",
+            "position": {
+              "x": 217.5,
+              "y": 74.5
+            }
+          }
+        },
+        "properties": {
+          "title": "S3 Retiling local-spiros-koulouzis-at-lifewatch-eu",
+          "vars": [
+            {
+              "name": "split_laz_files",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#5382ac"
+            },
+            {
+              "name": "S3_done",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#ac53a9"
+            }
+          ],
+          "params": [],
+          "inputs": [
+            "split_laz_files"
+          ],
+          "outputs": [
+            "S3_done"
+          ],
+          "og_node_id": "14d69d3",
+          "deps": [
+            "",
+            "laserfarm"
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "e6025de9-131a-4af9-a06b-67d6a8aa75de": {
+        "id": "e6025de9-131a-4af9-a06b-67d6a8aa75de",
+        "position": {
+          "x": 2323,
+          "y": 18
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "S3_done": {
+            "properties": {
+              "color": "#ac53a9"
+            },
+            "id": "S3_done",
+            "type": "left",
+            "position": {
+              "x": 30.5,
+              "y": 74.5
+            }
+          },
+          "tiles": {
+            "properties": {
+              "color": "#406abf"
+            },
+            "id": "tiles",
+            "type": "right",
+            "position": {
+              "x": 233,
+              "y": 74.5
+            }
+          }
+        },
+        "properties": {
+          "title": "S4 Retrive retiled tiles local-spiros-koulouzis-at-lifewatch-eu",
+          "vars": [
+            {
+              "name": "S3_done",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#ac53a9"
+            },
+            {
+              "name": "tiles",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#406abf"
+            }
+          ],
+          "params": [],
+          "inputs": [
+            "S3_done"
+          ],
+          "outputs": [
+            "tiles"
+          ],
+          "og_node_id": "3d2a38f",
+          "deps": [
+            ""
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "732c3b44-0f60-4e19-8236-c2e10f4a7b02": {
+        "id": "732c3b44-0f60-4e19-8236-c2e10f4a7b02",
+        "position": {
+          "x": 2935,
+          "y": 0
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "tiles": {
+            "properties": {
+              "color": "#406abf"
+            },
+            "id": "tiles",
+            "type": "left",
+            "position": {
+              "x": 15,
+              "y": 74.5
+            }
+          },
+          "S5_done": {
+            "properties": {
+              "color": "#86702d"
+            },
+            "id": "S5_done",
+            "type": "right",
+            "position": {
+              "x": 217.5,
+              "y": 74.5
+            }
+          }
+        },
+        "properties": {
+          "title": "S5 Feature Extraction local-spiros-koulouzis-at-lifewatch-eu",
+          "vars": [
+            {
+              "name": "tiles",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#406abf"
+            },
+            {
+              "name": "S5_done",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#86702d"
+            }
+          ],
+          "params": [],
+          "inputs": [
+            "tiles"
+          ],
+          "outputs": [
+            "S5_done"
+          ],
+          "og_node_id": "e4c9ea3",
+          "deps": [
+            "",
+            "laserfarm"
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "37d74594-610a-498a-8932-db839552b64d": {
+        "id": "37d74594-610a-498a-8932-db839552b64d",
+        "position": {
+          "x": 2654,
+          "y": 0
+        },
+        "orientation": 0,
+        "type": "splitter",
+        "ports": {
+          "splitter_source": {
+            "id": "splitter_source",
+            "type": "left",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 0.5,
+              "y": 49.5
+            }
+          },
+          "splitter_target": {
+            "id": "splitter_target",
+            "type": "right",
+            "properties": {
+              "special_node": 1,
+              "color": "#000000"
+            },
+            "position": {
+              "x": 197.5,
+              "y": 49.5
+            }
+          }
+        },
+        "properties": {
+          "title": "Splitter",
+          "scalingFactor": 1
+        },
+        "size": {
+          "width": 200,
+          "height": 100
+        }
+      },
+      "5341d5fd-0781-49e1-a5b8-6b6b116052a3": {
+        "id": "5341d5fd-0781-49e1-a5b8-6b6b116052a3",
+        "position": {
+          "x": 3292,
+          "y": 0
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "S5_done": {
+            "properties": {
+              "color": "#86702d"
+            },
+            "id": "S5_done",
+            "type": "left",
+            "position": {
+              "x": 30.5,
+              "y": 74.5
+            }
+          },
+          "S6_done": {
+            "properties": {
+              "color": "#2d35d2"
+            },
+            "id": "S6_done",
+            "type": "right",
+            "position": {
+              "x": 217.5,
+              "y": 74.5
+            }
+          }
+        },
+        "properties": {
+          "title": "S6 GeoTIFF Export local-spiros-koulouzis-at-lifewatch-eu",
+          "vars": [
+            {
+              "name": "S5_done",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#86702d"
+            },
+            {
+              "name": "S6_done",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#2d35d2"
+            }
+          ],
+          "params": [
+            "param_hostname",
+            "param_username",
+            "param_password"
+          ],
+          "inputs": [
+            "S5_done"
+          ],
+          "outputs": [
+            "S6_done"
+          ],
+          "og_node_id": "5fa62d1",
+          "deps": [
+            "",
+            "laserfarm"
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      },
+      "40441ab1-ef7f-45de-8557-09b72fcf3f1f": {
+        "id": "40441ab1-ef7f-45de-8557-09b72fcf3f1f",
+        "position": {
+          "x": 4126,
+          "y": 0
+        },
+        "orientation": 0,
+        "type": "visualizer",
+        "ports": {
+          "hostname": {
+            "id": "hostname",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 14.5
+            }
+          },
+          "username": {
+            "id": "username",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 43.5
+            }
+          },
+          "password": {
+            "id": "password",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 71.5
+            }
+          },
+          "remote": {
+            "id": "remote",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 100.5
+            }
+          },
+          "num": {
+            "id": "num",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 128.5
+            }
+          },
+          "mode": {
+            "id": "mode",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 157.5
+            }
+          },
+          "output": {
+            "id": "output",
+            "type": "left",
+            "properties": {
+              "color": "#000000"
+            },
+            "position": {
+              "x": 35.5,
+              "y": 185.5
+            }
+          }
+        },
+        "properties": {
+          "title": "Visualizer",
+          "scalingFactor": 1
+        },
+        "size": {
+          "width": 200,
+          "height": 100
+        }
+      },
+      "aed29128-ecda-419c-a2c5-d164dcf40d98": {
+        "id": "aed29128-ecda-419c-a2c5-d164dcf40d98",
+        "position": {
+          "x": 3624,
+          "y": 0
+        },
+        "orientation": 0,
+        "type": "input-output",
+        "ports": {
+          "S6_done": {
+            "properties": {
+              "color": "#2d35d2"
+            },
+            "id": "S6_done",
+            "type": "left",
+            "position": {
+              "x": 30.5,
+              "y": 74.5
+            }
+          },
+          "hostname": {
+            "properties": {
+              "color": "#2d40d2"
+            },
+            "id": "hostname",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 14.5
+            }
+          },
+          "remote": {
+            "properties": {
+              "color": "#502d86"
+            },
+            "id": "remote",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 43.5
+            }
+          },
+          "num": {
+            "properties": {
+              "color": "#87c587"
+            },
+            "id": "num",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 71.5
+            }
+          },
+          "username": {
+            "properties": {
+              "color": "#d2b979"
+            },
+            "id": "username",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 100.5
+            }
+          },
+          "output": {
+            "properties": {
+              "color": "#1f932b"
+            },
+            "id": "output",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 128.5
+            }
+          },
+          "mode": {
+            "properties": {
+              "color": "#2daed2"
+            },
+            "id": "mode",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 157.5
+            }
+          },
+          "password": {
+            "properties": {
+              "color": "#8779d2"
+            },
+            "id": "password",
+            "type": "right",
+            "position": {
+              "x": 212.5,
+              "y": 185.5
+            }
+          }
+        },
+        "properties": {
+          "title": "param vislulization-spiros-koulouzis-at-lifewatch-eu",
+          "vars": [
+            {
+              "name": "S6_done",
+              "direction": "input",
+              "type": "datatype",
+              "color": "#2d35d2"
+            },
+            {
+              "name": "hostname",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#2d40d2"
+            },
+            {
+              "name": "remote",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#502d86"
+            },
+            {
+              "name": "num",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#87c587"
+            },
+            {
+              "name": "username",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#d2b979"
+            },
+            {
+              "name": "output",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#1f932b"
+            },
+            {
+              "name": "mode",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#2daed2"
+            },
+            {
+              "name": "password",
+              "direction": "output",
+              "type": "datatype",
+              "color": "#8779d2"
+            }
+          ],
+          "params": [
+            "param_hostname",
+            "param_username",
+            "param_password"
+          ],
+          "inputs": [
+            "S6_done"
+          ],
+          "outputs": [
+            "hostname",
+            "remote",
+            "num",
+            "username",
+            "output",
+            "mode",
+            "password"
+          ],
+          "og_node_id": "6af7098",
+          "deps": [
+            ""
+          ]
+        },
+        "size": {
+          "width": 250,
+          "height": 150
+        }
+      }
+    },
+    "links": {
+      "dd2c1a81-6311-4901-9d9c-59cafa3bac05": {
+        "id": "dd2c1a81-6311-4901-9d9c-59cafa3bac05",
+        "from": {
+          "nodeId": "070c1a00-436d-4994-98be-c155e1af9b7e",
+          "portId": "laz_files"
+        },
+        "to": {
+          "nodeId": "d1bce8b8-0f30-4b28-a0c3-c0bde5e37e30",
+          "portId": "splitter_source"
+        }
+      },
+      "4f8976fb-f508-422e-a596-532273281dbe": {
+        "id": "4f8976fb-f508-422e-a596-532273281dbe",
+        "from": {
+          "nodeId": "d1bce8b8-0f30-4b28-a0c3-c0bde5e37e30",
+          "portId": "splitter_target"
+        },
+        "to": {
+          "nodeId": "b696288b-deaa-43cb-8696-af7efefa999a",
+          "portId": "laz_files"
+        }
+      },
+      "1dfd1c57-54b8-4291-a219-6080214d36f0": {
+        "id": "1dfd1c57-54b8-4291-a219-6080214d36f0",
+        "from": {
+          "nodeId": "b696288b-deaa-43cb-8696-af7efefa999a",
+          "portId": "S2_done"
+        },
+        "to": {
+          "nodeId": "0f91e67a-d431-4169-85db-bce557fd8cc7",
+          "portId": "S2_done"
+        }
+      },
+      "e3cd0c94-ecbf-4bf0-a380-8bacaec8eef7": {
+        "id": "e3cd0c94-ecbf-4bf0-a380-8bacaec8eef7",
+        "from": {
+          "nodeId": "0f91e67a-d431-4169-85db-bce557fd8cc7",
+          "portId": "split_laz_files"
+        },
+        "to": {
+          "nodeId": "160e39af-1b17-4511-ae2e-0cc5252e8769",
+          "portId": "splitter_source"
+        }
+      },
+      "65f39c66-6a5e-4246-903b-a027b0b2e63b": {
+        "id": "65f39c66-6a5e-4246-903b-a027b0b2e63b",
+        "from": {
+          "nodeId": "160e39af-1b17-4511-ae2e-0cc5252e8769",
+          "portId": "splitter_target"
+        },
+        "to": {
+          "nodeId": "4fec5253-13a8-4515-bb7a-0f9a959724fa",
+          "portId": "split_laz_files"
+        }
+      },
+      "04a01072-45a0-4114-939c-bafb4d3b528d": {
+        "id": "04a01072-45a0-4114-939c-bafb4d3b528d",
+        "from": {
+          "nodeId": "4fec5253-13a8-4515-bb7a-0f9a959724fa",
+          "portId": "S3_done"
+        },
+        "to": {
+          "nodeId": "e6025de9-131a-4af9-a06b-67d6a8aa75de",
+          "portId": "S3_done"
+        }
+      },
+      "1112836c-a180-4e54-95a7-d92c4820f515": {
+        "id": "1112836c-a180-4e54-95a7-d92c4820f515",
+        "from": {
+          "nodeId": "e6025de9-131a-4af9-a06b-67d6a8aa75de",
+          "portId": "tiles"
+        },
+        "to": {
+          "nodeId": "37d74594-610a-498a-8932-db839552b64d",
+          "portId": "splitter_source"
+        }
+      },
+      "220823eb-5617-42e3-b958-ca7a6626c4ac": {
+        "id": "220823eb-5617-42e3-b958-ca7a6626c4ac",
+        "from": {
+          "nodeId": "37d74594-610a-498a-8932-db839552b64d",
+          "portId": "splitter_target"
+        },
+        "to": {
+          "nodeId": "732c3b44-0f60-4e19-8236-c2e10f4a7b02",
+          "portId": "tiles"
+        }
+      },
+      "77375352-6cc7-41ed-910c-9fd18a62de8e": {
+        "id": "77375352-6cc7-41ed-910c-9fd18a62de8e",
+        "from": {
+          "nodeId": "732c3b44-0f60-4e19-8236-c2e10f4a7b02",
+          "portId": "S5_done"
+        },
+        "to": {
+          "nodeId": "5341d5fd-0781-49e1-a5b8-6b6b116052a3",
+          "portId": "S5_done"
+        }
+      },
+      "111a6ea9-f143-47a7-af1c-6b704f89570d": {
+        "id": "111a6ea9-f143-47a7-af1c-6b704f89570d",
+        "from": {
+          "nodeId": "5341d5fd-0781-49e1-a5b8-6b6b116052a3",
+          "portId": "S6_done"
+        },
+        "to": {
+          "nodeId": "aed29128-ecda-419c-a2c5-d164dcf40d98",
+          "portId": "S6_done"
+        }
+      },
+      "3409e58c-9a52-4765-90c8-d1d02e740e9f": {
+        "id": "3409e58c-9a52-4765-90c8-d1d02e740e9f",
+        "from": {
+          "nodeId": "aed29128-ecda-419c-a2c5-d164dcf40d98",
+          "portId": "password"
+        },
+        "to": {
+          "nodeId": "40441ab1-ef7f-45de-8557-09b72fcf3f1f",
+          "portId": "password"
+        }
+      },
+      "330e47e7-9034-4190-a742-f9ca9a4462aa": {
+        "id": "330e47e7-9034-4190-a742-f9ca9a4462aa",
+        "from": {
+          "nodeId": "aed29128-ecda-419c-a2c5-d164dcf40d98",
+          "portId": "mode"
+        },
+        "to": {
+          "nodeId": "40441ab1-ef7f-45de-8557-09b72fcf3f1f",
+          "portId": "mode"
+        }
+      },
+      "34e98062-d851-407d-a898-7db2ac3b0fcf": {
+        "id": "34e98062-d851-407d-a898-7db2ac3b0fcf",
+        "from": {
+          "nodeId": "aed29128-ecda-419c-a2c5-d164dcf40d98",
+          "portId": "output"
+        },
+        "to": {
+          "nodeId": "40441ab1-ef7f-45de-8557-09b72fcf3f1f",
+          "portId": "output"
+        }
+      },
+      "eb7df384-1c8a-467e-98f5-c3a1c32d40dd": {
+        "id": "eb7df384-1c8a-467e-98f5-c3a1c32d40dd",
+        "from": {
+          "nodeId": "aed29128-ecda-419c-a2c5-d164dcf40d98",
+          "portId": "username"
+        },
+        "to": {
+          "nodeId": "40441ab1-ef7f-45de-8557-09b72fcf3f1f",
+          "portId": "username"
+        }
+      },
+      "e1209ee1-4303-4a48-acb4-7333682764b4": {
+        "id": "e1209ee1-4303-4a48-acb4-7333682764b4",
+        "from": {
+          "nodeId": "aed29128-ecda-419c-a2c5-d164dcf40d98",
+          "portId": "num"
+        },
+        "to": {
+          "nodeId": "40441ab1-ef7f-45de-8557-09b72fcf3f1f",
+          "portId": "num"
+        }
+      },
+      "90bcec5f-daa4-4c70-aa03-e49ddac33270": {
+        "id": "90bcec5f-daa4-4c70-aa03-e49ddac33270",
+        "from": {
+          "nodeId": "aed29128-ecda-419c-a2c5-d164dcf40d98",
+          "portId": "remote"
+        },
+        "to": {
+          "nodeId": "40441ab1-ef7f-45de-8557-09b72fcf3f1f",
+          "portId": "remote"
+        }
+      },
+      "b0603c8f-55bf-4f2c-b395-c00adaf19090": {
+        "id": "b0603c8f-55bf-4f2c-b395-c00adaf19090",
+        "from": {
+          "nodeId": "aed29128-ecda-419c-a2c5-d164dcf40d98",
+          "portId": "hostname"
+        },
+        "to": {
+          "nodeId": "40441ab1-ef7f-45de-8557-09b72fcf3f1f",
+          "portId": "hostname"
+        }
+      }
+    },
+    "selected": {},
+    "hovered": {}
+  }
+}
