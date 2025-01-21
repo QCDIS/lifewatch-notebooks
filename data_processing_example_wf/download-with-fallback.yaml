@@ -3,8 +3,8 @@ metadata:
   generateName: download-with-fallback-parameterized-
   namespace: argo
   uid: de71dc58-dfc8-46ec-bd8e-8dd9ead1fa98
-  resourceVersion: '342214437'
-  generation: 2
+  resourceVersion: '342232003'
+  generation: 8
   creationTimestamp: '2025-01-21T14:08:41Z'
   labels:
     workflows.argoproj.io/creator: d9b22c70-4a2d-45d0-bb59-0823cba5a46c
@@ -14,7 +14,7 @@ metadata:
     - manager: argo
       operation: Update
       apiVersion: argoproj.io/v1alpha1
-      time: '2025-01-21T14:20:44Z'
+      time: '2025-01-21T14:42:32Z'
       fieldsType: FieldsV1
       fieldsV1:
         f:metadata:
@@ -75,6 +75,9 @@ spec:
         command:
           - sh
         resources: {}
+        volumeMounts:
+          - name: workdir
+            mountPath: /tmp/data
         source: >
           set -e
 
@@ -87,7 +90,9 @@ spec:
               echo "success" > /tmp/status
           else
               echo "failure" > /tmp/status
-          fi
+          fi;
+
+          ls /tmp/data/
       volumes:
         - name: data-volume
           emptyDir: {}
@@ -103,6 +108,7 @@ spec:
           - '-c'
         args:
           - |
+            ls /tmp/data/
             echo "Processing the file..."
             cat /tmp/data/example.h5
         resources: {}
@@ -115,7 +121,7 @@ spec:
       - name: bucketPath
         value: naa-vre-public/vl-vol2bird/radar_files/example.h5
       - name: primaryEndpoint
-        value: https://mio1:9000
+        value: https:/mio1:9000
       - name: secondaryEndpoint
         value: https://mio2
   volumeClaimTemplates:
