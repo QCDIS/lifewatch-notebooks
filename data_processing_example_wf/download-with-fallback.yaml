@@ -1,0 +1,131 @@
+metadata:
+  name: download-with-fallback-parameterized-v5x6w
+  generateName: download-with-fallback-parameterized-
+  namespace: argo
+  uid: de71dc58-dfc8-46ec-bd8e-8dd9ead1fa98
+  resourceVersion: '342214437'
+  generation: 2
+  creationTimestamp: '2025-01-21T14:08:41Z'
+  labels:
+    workflows.argoproj.io/creator: d9b22c70-4a2d-45d0-bb59-0823cba5a46c
+    workflows.argoproj.io/creator-email: spiros.koulouzis.at.lifewatch.eu
+    workflows.argoproj.io/creator-preferred-username: spiros.koulouzis-lifewatch.eu
+  managedFields:
+    - manager: argo
+      operation: Update
+      apiVersion: argoproj.io/v1alpha1
+      time: '2025-01-21T14:20:44Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:workflows.argoproj.io/creator: {}
+            f:workflows.argoproj.io/creator-email: {}
+            f:workflows.argoproj.io/creator-preferred-username: {}
+        f:spec: {}
+spec:
+  templates:
+    - name: main
+      inputs:
+        parameters:
+          - name: bucketPath
+          - name: primaryEndpoint
+          - name: secondaryEndpoint
+      outputs: {}
+      metadata: {}
+      steps:
+        - - name: try-primary-endpoint
+            template: download-file
+            arguments:
+              parameters:
+                - name: endpoint
+                  value: '{{inputs.parameters.primaryEndpoint}}'
+                - name: bucketPath
+                  value: '{{inputs.parameters.bucketPath}}'
+        - - name: fallback-to-secondary
+            template: download-file
+            arguments:
+              parameters:
+                - name: endpoint
+                  value: '{{inputs.parameters.secondaryEndpoint}}'
+                - name: bucketPath
+                  value: '{{inputs.parameters.bucketPath}}'
+            when: >-
+              {{steps.try-primary-endpoint.outputs.parameters.status}} ==
+              'failure'
+        - - name: process-file
+            template: process-file
+            arguments: {}
+    - name: download-file
+      inputs:
+        parameters:
+          - name: endpoint
+          - name: bucketPath
+      outputs:
+        parameters:
+          - name: status
+            valueFrom:
+              path: /tmp/status
+      metadata: {}
+      script:
+        name: ''
+        image: amazon/aws-cli:latest
+        command:
+          - sh
+        resources: {}
+        source: >
+          set -e
+
+          echo "Trying to download file from
+          {{inputs.parameters.endpoint}}/{{inputs.parameters.bucketPath}}..."
+
+          if aws s3 cp s3://{{inputs.parameters.bucketPath}}
+          /tmp/data/example.h5 \
+              --endpoint-url {{inputs.parameters.endpoint}} --no-sign-request; then
+              echo "success" > /tmp/status
+          else
+              echo "failure" > /tmp/status
+          fi
+      volumes:
+        - name: data-volume
+          emptyDir: {}
+    - name: process-file
+      inputs: {}
+      outputs: {}
+      metadata: {}
+      container:
+        name: ''
+        image: alpine:latest
+        command:
+          - sh
+          - '-c'
+        args:
+          - |
+            echo "Processing the file..."
+            cat /tmp/data/example.h5
+        resources: {}
+        volumeMounts:
+          - name: workdir
+            mountPath: /tmp/data
+  entrypoint: main
+  arguments:
+    parameters:
+      - name: bucketPath
+        value: naa-vre-public/vl-vol2bird/radar_files/example.h5
+      - name: primaryEndpoint
+        value: https://mio1:9000
+      - name: secondaryEndpoint
+        value: https://mio2
+  volumeClaimTemplates:
+    - metadata:
+        name: workdir
+        creationTimestamp: null
+      spec:
+        accessModes:
+          - ReadWriteMany
+        resources:
+          requests:
+            storage: 1Gi
+      status: {}
