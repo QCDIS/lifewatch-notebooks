@@ -1,0 +1,370 @@
+{
+  "chart": {
+    "offset": {
+      "x": 61.14,
+      "y": 214.27
+    },
+    "scale": 0.755,
+    "nodes": {
+      "3ca615ee-2e4d-4802-be5c-7369ccc8b798": {
+        "id": "3ca615ee-2e4d-4802-be5c-7369ccc8b798",
+        "position": {
+          "x": 714,
+          "y": 300
+        },
+        "orientation": 0,
+        "type": "splitter",
+        "ports": {
+          "splitter_source": {
+            "id": "splitter_source",
+            "type": "left",
+            "properties": {
+              "color": "#86642d",
+              "parentNodeType": "splitter"
+            },
+            "position": {
+              "x": -2,
+              "y": 50
+            }
+          },
+          "splitter_target": {
+            "id": "splitter_target",
+            "type": "right",
+            "properties": {
+              "color": "#5940bf",
+              "parentNodeType": "splitter"
+            },
+            "position": {
+              "x": 202,
+              "y": 50
+            }
+          }
+        },
+        "properties": {
+          "cell": {
+            "id": "splitter",
+            "title": "Splitter",
+            "type": "splitter",
+            "container_image": "",
+            "dependencies": [],
+            "inputs": [
+              {
+                "name": "splitter_source",
+                "type": "list"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "splitter_target",
+                "type": "list"
+              }
+            ],
+            "confs": [],
+            "params": [],
+            "secrets": []
+          }
+        },
+        "size": {
+          "width": 202,
+          "height": 102
+        }
+      },
+      "42b2ba54-7ed5-4450-9736-09065c52b40a": {
+        "id": "42b2ba54-7ed5-4450-9736-09065c52b40a",
+        "position": {
+          "x": 1251,
+          "y": 301
+        },
+        "orientation": 0,
+        "type": "merger",
+        "ports": {
+          "merger_source": {
+            "id": "merger_source",
+            "type": "left",
+            "properties": {
+              "color": "#1f9384",
+              "parentNodeType": "merger"
+            },
+            "position": {
+              "x": -2,
+              "y": 50
+            }
+          },
+          "merger_target": {
+            "id": "merger_target",
+            "type": "right",
+            "properties": {
+              "color": "#562d86",
+              "parentNodeType": "merger"
+            },
+            "position": {
+              "x": 202,
+              "y": 50
+            }
+          }
+        },
+        "properties": {
+          "cell": {
+            "id": "merger",
+            "title": "Merger",
+            "type": "merger",
+            "container_image": "",
+            "dependencies": [],
+            "inputs": [
+              {
+                "name": "merger_source",
+                "type": "list"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "merger_target",
+                "type": "list"
+              }
+            ],
+            "confs": [],
+            "params": [],
+            "secrets": []
+          }
+        },
+        "size": {
+          "width": 202,
+          "height": 102
+        }
+      },
+      "d98bb2ff-d4c7-41e8-ac6a-c74156ff0e3e": {
+        "id": "d98bb2ff-d4c7-41e8-ac6a-c74156ff0e3e",
+        "position": {
+          "x": 413.6556453073263,
+          "y": 284.41059602649005
+        },
+        "orientation": 0,
+        "type": "workflow-cell",
+        "ports": {
+          "names": {
+            "id": "names",
+            "type": "right",
+            "properties": {
+              "color": "#2dd2ca",
+              "parentNodeType": "workflow-cell"
+            },
+            "position": {
+              "x": 226.5,
+              "y": 75
+            }
+          }
+        },
+        "properties": {
+          "cell": {
+            "url": "https://new.demo.naavre.net/naavre-catalogue-service/workflow-cells/983daaea-e1ce-46ed-83c7-0eed9e7343cf/",
+            "owner": "gpelouze",
+            "virtual_lab": "openlab",
+            "base_container_image": {
+              "build": "ghcr.io/naavre/flavors/naavre-fl-vanilla-cell-build:v0.0.8",
+              "runtime": "ghcr.io/naavre/flavors/naavre-fl-vanilla-cell-runtime:v0.0.8"
+            },
+            "dependencies": [],
+            "inputs": [],
+            "outputs": [
+              {
+                "name": "names",
+                "type": "list"
+              }
+            ],
+            "confs": [],
+            "params": [],
+            "secrets": [],
+            "title": "ex2-1-input-list-gpelouze",
+            "description": "ex2-1-input-list-gpelouze",
+            "created": "2025-06-14T08:39:58.522619Z",
+            "modified": "2025-06-14T08:39:58.640096Z",
+            "container_image": "ghcr.io/naavre/cells-vl-openlab/ex2-1-input-list-gpelouze:307c95c",
+            "kernel": "ipython",
+            "source_url": "https://github.com/NaaVRE/cells-vl-openlab/tree/aebd742b51730913dcabbe82a552e7c29ccfced8/ex2-1-input-list-gpelouze"
+          }
+        },
+        "size": {
+          "width": 252,
+          "height": 152
+        }
+      },
+      "a3c6dc7c-7c58-440f-9b9d-107f860a5cc6": {
+        "id": "a3c6dc7c-7c58-440f-9b9d-107f860a5cc6",
+        "position": {
+          "x": 958.0265062344781,
+          "y": 284.41059602649005
+        },
+        "orientation": 0,
+        "type": "workflow-cell",
+        "ports": {
+          "names": {
+            "id": "names",
+            "type": "left",
+            "properties": {
+              "color": "#2dd2ca",
+              "parentNodeType": "workflow-cell"
+            },
+            "position": {
+              "x": 23.5,
+              "y": 75
+            }
+          },
+          "sentences": {
+            "id": "sentences",
+            "type": "right",
+            "properties": {
+              "color": "#86412d",
+              "parentNodeType": "workflow-cell"
+            },
+            "position": {
+              "x": 215.5,
+              "y": 75
+            }
+          }
+        },
+        "properties": {
+          "cell": {
+            "url": "https://new.demo.naavre.net/naavre-catalogue-service/workflow-cells/2648e8b3-91fd-45de-a093-e0d556ed7187/",
+            "owner": "gpelouze",
+            "virtual_lab": "openlab",
+            "base_container_image": {
+              "build": "ghcr.io/naavre/flavors/naavre-fl-vanilla-cell-build:v0.0.8",
+              "runtime": "ghcr.io/naavre/flavors/naavre-fl-vanilla-cell-runtime:v0.0.8"
+            },
+            "dependencies": [],
+            "inputs": [
+              {
+                "name": "names",
+                "type": "list"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "sentences",
+                "type": "list"
+              }
+            ],
+            "confs": [],
+            "params": [],
+            "secrets": [],
+            "title": "ex2-2-process-list-gpelouze",
+            "description": "ex2-2-process-list-gpelouze",
+            "created": "2025-06-14T08:40:03.201933Z",
+            "modified": "2025-06-14T08:40:03.325639Z",
+            "container_image": "ghcr.io/naavre/cells-vl-openlab/ex2-2-process-list-gpelouze:f1908e1",
+            "kernel": "ipython",
+            "source_url": "https://github.com/NaaVRE/cells-vl-openlab/tree/9950afaa8aeb9c331f78a4ace093c1d6c746ea9f/ex2-2-process-list-gpelouze"
+          }
+        },
+        "size": {
+          "width": 252,
+          "height": 152
+        }
+      },
+      "f9ad8ca9-2125-4f6f-a1a1-0545657d35d4": {
+        "id": "f9ad8ca9-2125-4f6f-a1a1-0545657d35d4",
+        "position": {
+          "x": 1497.0993539165986,
+          "y": 284.41059602649
+        },
+        "orientation": 0,
+        "type": "workflow-cell",
+        "ports": {
+          "sentences": {
+            "id": "sentences",
+            "type": "left",
+            "properties": {
+              "color": "#86412d",
+              "parentNodeType": "workflow-cell"
+            },
+            "position": {
+              "x": 34.5,
+              "y": 75
+            }
+          }
+        },
+        "properties": {
+          "cell": {
+            "url": "https://new.demo.naavre.net/naavre-catalogue-service/workflow-cells/466af6f1-5c72-4b15-b2d4-e1bd799b5b8f/",
+            "owner": "gpelouze",
+            "virtual_lab": "openlab",
+            "base_container_image": {
+              "build": "ghcr.io/naavre/flavors/naavre-fl-vanilla-cell-build:v0.0.8",
+              "runtime": "ghcr.io/naavre/flavors/naavre-fl-vanilla-cell-runtime:v0.0.8"
+            },
+            "dependencies": [],
+            "inputs": [
+              {
+                "name": "sentences",
+                "type": "list"
+              }
+            ],
+            "outputs": [],
+            "confs": [],
+            "params": [],
+            "secrets": [],
+            "title": "ex2-3-print-list-gpelouze",
+            "description": "ex2-3-print-list-gpelouze",
+            "created": "2025-06-14T08:40:09.084384Z",
+            "modified": "2025-06-14T08:40:09.214939Z",
+            "container_image": "ghcr.io/naavre/cells-vl-openlab/ex2-3-print-list-gpelouze:ec860f7",
+            "kernel": "ipython",
+            "source_url": "https://github.com/NaaVRE/cells-vl-openlab/tree/7104dab34c0101dec522f19d374b7aaf24dfcc38/ex2-3-print-list-gpelouze"
+          }
+        },
+        "size": {
+          "width": 252,
+          "height": 152
+        }
+      }
+    },
+    "links": {
+      "9f3e9df3-9484-4cbe-9c6a-154bc8882e0c": {
+        "id": "9f3e9df3-9484-4cbe-9c6a-154bc8882e0c",
+        "from": {
+          "nodeId": "d98bb2ff-d4c7-41e8-ac6a-c74156ff0e3e",
+          "portId": "names"
+        },
+        "to": {
+          "nodeId": "3ca615ee-2e4d-4802-be5c-7369ccc8b798",
+          "portId": "splitter_source"
+        }
+      },
+      "ef0371b8-745a-40c8-9112-08bbeebcd60a": {
+        "id": "ef0371b8-745a-40c8-9112-08bbeebcd60a",
+        "from": {
+          "nodeId": "3ca615ee-2e4d-4802-be5c-7369ccc8b798",
+          "portId": "splitter_target"
+        },
+        "to": {
+          "nodeId": "a3c6dc7c-7c58-440f-9b9d-107f860a5cc6",
+          "portId": "names"
+        }
+      },
+      "475169ff-bb40-45dc-b7fc-7b27e49eac6a": {
+        "id": "475169ff-bb40-45dc-b7fc-7b27e49eac6a",
+        "from": {
+          "nodeId": "a3c6dc7c-7c58-440f-9b9d-107f860a5cc6",
+          "portId": "sentences"
+        },
+        "to": {
+          "nodeId": "42b2ba54-7ed5-4450-9736-09065c52b40a",
+          "portId": "merger_source"
+        }
+      },
+      "79410b2b-c769-4030-b681-e8e70cf3c38f": {
+        "id": "79410b2b-c769-4030-b681-e8e70cf3c38f",
+        "from": {
+          "nodeId": "42b2ba54-7ed5-4450-9736-09065c52b40a",
+          "portId": "merger_target"
+        },
+        "to": {
+          "nodeId": "f9ad8ca9-2125-4f6f-a1a1-0545657d35d4",
+          "portId": "sentences"
+        }
+      }
+    },
+    "selected": {},
+    "hovered": {}
+  }
+}
